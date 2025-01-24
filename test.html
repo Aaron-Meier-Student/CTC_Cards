@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CTC Cards</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./test.css" />
+        <link rel="stylesheet" href="./animations.css" />
+        <script src="./data.js"></script>
+        <script src="./rgbToFilter.js"></script>
+        <script src="./test.js" defer></script>
+    </head>
+    <body>
+        <div id="background"></div>
+        <main>
+            <nav>
+                <h1 style="z-index: 100">CTC Card Builder</h1>
+            </nav>
+        </main>
+        <div
+            id="opener"
+            class="active"
+            style="backdrop-filter: none; background-color: transparent"
+        >
+            <div id="editor">
+                <label for="edit-Display">
+                    Display
+                    <input id="edit-Display" type="text" value="Student Name" />
+                </label>
+                <!---->
+                <label for="edit-AltDisplay">
+                    AltDisplay
+                    <input id="edit-AltDisplay" type="text" />
+                </label>
+                <!---->
+                <label for="edit-Pre">
+                    Pre
+                    <input id="edit-Pre" type="text" />
+                </label>
+                <!---->
+                <label for="edit-PreColor">
+                    Pre Color
+                    <input id="edit-PreColor" type="text" />
+                </label>
+                <!---->
+                <label for="edit-BaseColor">
+                    Base Color
+                    <input id="edit-BaseColor" type="text" value="255, 255, 255"/>
+                </label>
+                <!---->
+                <label for="edit-Pattern">
+                    Pattern
+                    <input id="edit-Pattern" type="text" />
+                </label>
+                <!---->
+                <label for="edit-Price">
+                    Price
+                    <input id="edit-Price" type="number" value="1" />
+                </label>
+                <!---->
+                <label for="edit-Changes">
+                    Additional Changes
+                    <input id="edit-Changes" type="text" />
+                </label>
+                <!---->
+                <button id="setChanges">Set Card</button>
+            </div>
+            <section>
+                <div>
+                    <div class="card"></div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

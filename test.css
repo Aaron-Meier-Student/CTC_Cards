@@ -1,0 +1,36 @@
+#editor {
+    display: flex;
+    flex-direction: column;
+}
+
+#editor input {
+    border: none;
+    background-color: rgb(30, 31, 32);
+    border-radius: 4px;
+    height: 30px;
+    width: 180px;
+    padding: 0 10px;
+    position: absolute;
+    left: -10px;
+    top: 25px;
+}
+
+#editor label {
+    position: relative;
+}
+
+#editor label:not(:first-child), button {
+    margin-top: 45px;
+}
+
+button {
+    width: 200px;
+    height: 30px;
+    background-color: blue;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transform: translateX(-10px);
+    font-weight: 600;
+    cursor: pointer;
+}
