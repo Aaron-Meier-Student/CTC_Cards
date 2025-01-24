@@ -1,25 +1,22 @@
-let SavedM = localStorage.getItem("money");
-let MoneyVar = SavedM ? SavedM : 20;
-let MoneyLock = false;
+let MoneyLock = true;
 let CardStartX = 0;
 let CardStartY = 0;
 let MaxDistance = 200;
 let CardDragging = false;
 let CardPercentageX = 0;
 let CardPercentageY = 0;
-let DefualtSellPrice = 1;
 let LockScreen = false;
 
 const CardsPerPack = 6;
 
-let Saved = localStorage.getItem("cards");
-let userData = Saved ? JSON.parse(Saved) : { Data: [] };
+let userData = { Money: "20.00", Cards: [] };
+let changesDetected = false;
 
 function updateInventory() {
     document.querySelector("#Inventory > div > div").innerHTML = "";
-    userData.Data.sort((a, b) => b.Price - a.Price);
+    userData.Cards.sort((a, b) => b.Price - a.Price);
     let index = 0;
-    userData.Data.forEach((card) => {
+    userData.Cards.forEach((card) => {
         let newCard = document.createElement("div");
         let CardPre = document.createElement("h4");
         let CardName = document.createElement("h4");
@@ -37,7 +34,7 @@ function updateInventory() {
         newCard.setAttribute("card-index", index);
         for (let [key, value] of Object.entries(card.Changes)) {
             if (key == "filter") {
-                const filter = getAccurateFilter(value,1);
+                const filter = getAccurateFilter(value, 1);
                 CardPattern.style.filter = filter
                     .split("filter: ")[1]
                     .split(";")[0];
@@ -79,13 +76,11 @@ function SellMode() {
         ).innerText = `SELL SELECTED (${total})`;
     }
 
-    document
-        .querySelectorAll("#Inventory .card-back")
-        .forEach((element) => {
-            element.style.cursor = "pointer";
-            Indexes[Number(element.getAttribute("card-index"))] = false;
-            element.addEventListener("click", addToList);
-        });
+    document.querySelectorAll("#Inventory .card-back").forEach((element) => {
+        element.style.cursor = "pointer";
+        Indexes[Number(element.getAttribute("card-index"))] = false;
+        element.addEventListener("click", addToList);
+    });
     function sellHandler() {
         document
             .getElementById("SellButton")
@@ -99,21 +94,23 @@ function SellMode() {
                 element.removeEventListener("click", addToList);
             });
 
-        let NewUserData = { Data: [] };
-        for (let i = 0; i < userData.Data.length; i++) {
+        let NewUserData = { Money: userData.Money, Cards: [] };
+        for (let i = 0; i < userData.Cards.length; i++) {
             if (Indexes[i]) {
-                Money(-userData.Data[i].Price);
+                Money(-userData.Cards[i].Price);
             } else {
-                NewUserData.Data.push(userData.Data[i]);
+                NewUserData.Cards.push(userData.Cards[i]);
             }
         }
+        NewUserData.Money = userData.Money;
         userData = NewUserData;
         updateInventory();
+        changesDetected = true;
         LockScreen = false;
         document
             .getElementById("SellButton")
             .addEventListener("click", SellMode);
-        localStorage.setItem("cards", JSON.stringify(userData));
+        SaveUserData();
     }
     document
         .getElementById("SellButton")
@@ -134,13 +131,14 @@ function getJsonSizeInKB(json) {
 }
 
 function Money(x) {
+    let tempMoney = Number(userData.Money);
     if (typeof x == "boolean") MoneyLock = x;
     if (MoneyLock) return;
-    if (x > MoneyVar) return false;
-    MoneyVar -= x;
-    MoneyVar = MoneyVar.toFixed(2);
-    document.getElementById("money").innerText = `$${MoneyVar}`;
-    localStorage.setItem("money", MoneyVar);
+    if (x > tempMoney) return false;
+    tempMoney -= x;
+    userData.Money = tempMoney.toFixed(2);
+    document.getElementById("money").innerText = `$${userData.Money}`;
+    changesDetected = x != 0 ? true : changesDetected == true ? true : false;
     return true;
 }
 Money(0);
@@ -197,11 +195,15 @@ function formatDataString(str) {
     return updatedStr;
 }
 
-function getAccurateFilter(value,attempts) {
+function getAccurateFilter(value, attempts) {
     const rgb = typeof value == "string" ? parseRgbString(value) : value;
     const filter = new Solver(new Color(rgb[0], rgb[1], rgb[2])).solve();
-    if (attempts >= 20) console.log('MAX ATTEMPTS');
-    return attempts >= 20 ? filter.filter : filter.loss > 0.3 ? getAccurateFilter(rgb,attempts+1) : filter.filter;
+    if (attempts >= 20) console.log("MAX ATTEMPTS");
+    return attempts >= 20
+        ? filter.filter
+        : filter.loss > 0.3
+        ? getAccurateFilter(rgb, attempts + 1)
+        : filter.filter;
 }
 
 function RollPack(PACK, Cards) {
@@ -270,7 +272,7 @@ function RollPack(PACK, Cards) {
 
         picked.Price *= multi;
 
-        userData.Data.push(picked);
+        userData.Cards.push(picked);
 
         current++;
         CardPercentage = 0;
@@ -279,7 +281,7 @@ function RollPack(PACK, Cards) {
         let innercard = card.querySelector("div");
         for (let [key, value] of Object.entries(picked.Changes)) {
             if (key == "filter") {
-                const filter = getAccurateFilter(value,1);
+                const filter = getAccurateFilter(value, 1);
                 card.querySelector("div > .card-back > div").style.filter =
                     filter.split("filter: ")[1].split(";")[0];
                 card.querySelector(
@@ -330,10 +332,11 @@ function RollPack(PACK, Cards) {
                 }, 100);
                 setTimeout(() => {
                     if (current > CardsPerPack) {
-                        localStorage.setItem("cards", JSON.stringify(userData));
                         document.getElementById("opener").className = "";
                         updateInventory();
                         Money(false);
+                        changesDetected = true;
+                        SaveUserData();
                         return;
                     } else {
                         NextCard();
@@ -346,6 +349,7 @@ function RollPack(PACK, Cards) {
 }
 
 Array.from(document.querySelector("nav div").children).forEach((button) => {
+    if (!button.id.includes("btn")) return;
     button.addEventListener("click", () => {
         SwapPage(button.innerText);
     });

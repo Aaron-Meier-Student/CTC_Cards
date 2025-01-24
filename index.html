@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="./animations.css" />
         <script src="./data.js"></script>
         <script src="./rgbToFilter.js"></script>
+        <script src="https://unpkg.com/@supabase/supabase-js"></script>
         <script src="./client.js" defer></script>
+        <script src="./cloud.js" defer></script>
     </head>
     <body>
         <div id="background"></div>
@@ -21,6 +23,7 @@
                     <button disabled id="btn-Customize" class="">Customize</button>
                     <button disabled id="btn-Information" class="">Information</button>
                     <h4 id="fileSize">0 kB</h4>
+                    <button id="login">Sign-In with GitHub</button>
                 </div>
                 <h1 id="money">$0</h1>
             </nav>
