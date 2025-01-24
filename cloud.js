@@ -53,7 +53,7 @@ async function ReadUserData() {
             if (data.length > 0) {
                 userData = {
                     Money: `${Number(data[0].Money).toFixed(2)}`,
-                    Cards: data[0].Cards,
+                    Cards: typeof data[0].Cards == "string" ? JSON.parse(data[0].Cards) : data[0].Cards,
                 };
                 MoneyLock = false;
                 dataloaded = true;
