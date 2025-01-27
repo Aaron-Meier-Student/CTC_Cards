@@ -39,6 +39,18 @@ const GameData = {
                 border: "6px solid rgb(<BASE>, <BASE>, <BASE>)",
             },
         },
+        Digital: {
+            Display: "",
+            AltDisplay: "Digital",
+            AddedValue: 15,
+            Chance: 75,
+            Multiplier: 2,
+            Shared: false,
+            BaseColor: "rgb(88,66,255)",
+            Pattern: "https://subcodevs.com/wp-content/uploads/2024/06/Animation.gif",
+            Changes: {},
+            // 
+        },
         Unusual: {
             Display: "",
             AltDisplay: "Unusual",
