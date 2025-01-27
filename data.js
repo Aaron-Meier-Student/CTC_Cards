@@ -48,7 +48,9 @@ const GameData = {
             Shared: false,
             BaseColor: "rgb(88,66,255)",
             Pattern: "https://subcodevs.com/wp-content/uploads/2024/06/Animation.gif",
-            Changes: {},
+            Changes: {
+                border: "6px solid <BASE>",
+            },
             // 
         },
         Unusual: {
