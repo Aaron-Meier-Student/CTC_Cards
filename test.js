@@ -79,18 +79,21 @@ updateCard({
     Price: 1,
 });
 
-document.getElementById("set").addEventListener("click", () => {
-    updateCard({
-        Display: "Student Name",
-        AltDisplay: document.querySelector("#display input").value,
-        Pre: document.querySelector("#pre input").value,
-        PreColor: hexToRgb(document.querySelector("#base input").value),
-        BaseColor: hexToRgb(document.querySelector("#base input").value),
-        Pattern: document.querySelector("#pattern input").value,
-        Changes: document.querySelector("#json input").value,
-        Price: 1,
-    });
-});
+Array.from(document.getElementsByTagName("input")).forEach((elem) => {
+    elem.addEventListener("input", () => {
+        updateCard({
+            Display: "Student Name",
+            AltDisplay: document.querySelector("#display input").value,
+            Pre: document.querySelector("#pre input").value,
+            PreColor: hexToRgb(document.querySelector("#base input").value),
+            BaseColor: hexToRgb(document.querySelector("#base input").value),
+            Pattern: document.querySelector("#pattern input").value,
+            Changes: document.querySelector("#json input").value,
+            Price: 1,
+        });
+    })
+})
+
 document.getElementById("export").addEventListener("click", () => {
     CardData = {
         Display: "Student Name",
