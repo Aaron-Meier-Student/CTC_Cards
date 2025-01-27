@@ -12,7 +12,7 @@ loginButton.addEventListener("click", async () => {
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
             provider: "github",
             options: {
-                redirectTo: "https://aaron-meier-student.github.io/CTC_Cards/"
+                redirectTo: window.location.href,
             }
         });
 
