@@ -163,6 +163,8 @@ function SwapPage(name) {
     document.getElementById("scroller").style.right = `${100 * mult}%`;
 }
 
+SwapPage("Information");
+
 const cardTemplate = `
     <div class="card notshown">
         <div class="card-inner">
