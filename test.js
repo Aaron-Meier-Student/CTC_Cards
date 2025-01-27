@@ -79,15 +79,46 @@ updateCard({
     Price: 1,
 });
 
-document.getElementById("setChanges").addEventListener("click", () => {
+document.getElementById("set").addEventListener("click", () => {
     updateCard({
-        Display: document.getElementById("edit-Display").value,
-        AltDisplay: document.getElementById("edit-AltDisplay").value,
-        Pre: document.getElementById("edit-Pre").value,
-        PreColor: document.getElementById("edit-PreColor").value,
-        BaseColor: formatDataString(document.getElementById("edit-BaseColor").value),
-        Pattern: document.getElementById("edit-Pattern").value,
-        Changes: document.getElementById("edit-Changes").value,
-        Price: Number(document.getElementById("edit-Price").value),
+        Display: "Student Name",
+        AltDisplay: document.querySelector("#display input").value,
+        Pre: document.querySelector("#pre input").value,
+        PreColor: hexToRgb(document.querySelector("#base input").value),
+        BaseColor: hexToRgb(document.querySelector("#base input").value),
+        Pattern: document.querySelector("#pattern input").value,
+        Changes: document.querySelector("#json input").value,
+        Price: 1,
     });
+});
+document.getElementById("export").addEventListener("click", () => {
+    CardData = {
+        Display: "Student Name",
+        AltDisplay: document.querySelector("#display input").value,
+        Pre: document.querySelector("#pre input").value,
+        PreColor: hexToRgb(document.querySelector("#base input").value),
+        BaseColor: hexToRgb(document.querySelector("#base input").value),
+        Pattern: document.querySelector("#pattern input").value,
+        Changes: document.querySelector("#json input").value,
+        Price: 1,
+    };
+    Result = `\`\`\`New_Variant: {
+            Display: "${CardData.Pre}",
+            AltDisplay: "${CardData.AltDisplay}",
+            AddedValue: DO_NOT_EDIT,
+            Chance: DO_NOT_EDIT,
+            Multiplier: DO_NOT_EDIT,
+            Shared: DO_NOT_EDIT,
+            BaseColor: "rgb(${CardData.BaseColor})",
+            Pattern: "${CardData.Pattern}",
+            Changes: ${CardData.Changes},
+            // ${document.querySelector("#note input").value}
+        }\`\`\``;
+    navigator.clipboard
+        .writeText(Result)
+        .then(function () {})
+        .catch(function (err) {
+            console.warn(`Couldn't copy to clipboard; ERROR: ${err};
+                RESULT: ${Result}`);
+        });
 });

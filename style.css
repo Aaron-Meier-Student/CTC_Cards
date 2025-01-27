@@ -389,3 +389,67 @@ section.Warning {
 section.Warning * {
     color: red !important;
 }
+#notice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#notice div {
+    border-radius: 8px;
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    background-color: rgb(14, 16, 19);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+
+#notice button {
+    background-color: blue;
+    outline: none;
+    border: none;
+    width: 100%;
+    min-height: 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+#notice button:hover {
+    background-color: rgb(35, 35, 255);
+}
+
+#contribute, #back {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: blue;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 250ms;
+}
+
+#back {
+    z-index: 100;
+}
+
+#contribute:hover, #back:hover {
+    background-color: rgb(35, 35, 255);
+}

@@ -12,10 +12,11 @@
         <script src="./test.js" defer></script>
     </head>
     <body>
+        <a id="back" href="./" target="_self">Go Back</a>
         <div id="background"></div>
         <main>
             <nav>
-                <h1 style="z-index: 100">CTC Card Builder</h1>
+                <h1 style="z-index: 100">CTC Variant Builder</h1>
             </nav>
         </main>
         <div
@@ -24,47 +25,77 @@
             style="backdrop-filter: none; background-color: transparent"
         >
             <div id="editor">
-                <label for="edit-Display">
-                    Display
-                    <input id="edit-Display" type="text" value="Student Name" />
-                </label>
-                <!---->
-                <label for="edit-AltDisplay">
-                    AltDisplay
-                    <input id="edit-AltDisplay" type="text" />
-                </label>
-                <!---->
-                <label for="edit-Pre">
-                    Pre
-                    <input id="edit-Pre" type="text" />
-                </label>
-                <!---->
-                <label for="edit-PreColor">
-                    Pre Color
-                    <input id="edit-PreColor" type="text" />
-                </label>
-                <!---->
-                <label for="edit-BaseColor">
-                    Base Color
-                    <input id="edit-BaseColor" type="text" value="255, 255, 255"/>
-                </label>
-                <!---->
-                <label for="edit-Pattern">
-                    Pattern
-                    <input id="edit-Pattern" type="text" />
-                </label>
-                <!---->
-                <label for="edit-Price">
-                    Price
-                    <input id="edit-Price" type="number" value="1" />
-                </label>
-                <!---->
-                <label for="edit-Changes">
-                    Additional Changes
-                    <input id="edit-Changes" type="text" />
-                </label>
-                <!---->
-                <button id="setChanges">Set Card</button>
+                <ul>
+                    <li id="display">
+                        <h4>Variant Display</h4>
+                        <div>
+                            <h6 style="color: rgb(121, 190, 255)">Text</h6>
+                            <h6 style="color: rgb(121, 255, 128)">
+                                Can Be None
+                            </h6>
+                        </div>
+                        <input type="text" />
+                    </li>
+                    <li id="base">
+                        <h4>Base Color</h4>
+                        <div>
+                            <h6 style="color: rgb(224, 121, 255)">RGB</h6>
+                            <h6 style="color: rgb(255, 121, 121)">
+                                Required
+                            </h6>
+                        </div>
+                        <input type="color" value="#ffffff"/>
+                    </li>
+                    <li id="pre">
+                        <h4>Prefix</h4>
+                        <div>
+                            <h6 style="color: rgb(121, 190, 255)">Text</h6>
+                            <h6 style="color: rgb(121, 255, 128)">
+                                Can Be None
+                            </h6>
+                        </div>
+                        <input type="text" />
+                    </li>
+                    <li id="pattern">
+                        <h4>Pattern URL</h4>
+                        <div>
+                            <h6 style="color: rgb(255, 186, 121)">URL</h6>
+                            <h6 style="color: rgb(121, 255, 128)">
+                                Can Be None
+                            </h6>
+                        </div>
+                        <input type="url" />
+                    </li>
+                    <li id="json">
+                        <h4>Additional Changes</h4>
+                        <div>
+                            <h6 style="color: rgb(255, 242, 121)">JSON</h6>
+                            <h6 style="color: rgb(121, 255, 128)">
+                                Can Be None
+                            </h6>
+                        </div>
+                        <input type="text" />
+                    </li>
+                    <li id="note">
+                        <h4>Want to change something else?</h4>
+                        <div>
+                            <h6 style="color: rgb(121, 190, 255)">Text</h6>
+                            <h6 style="color: rgb(121, 255, 128)">
+                                Can Be None
+                            </h6>
+                        </div>
+                        <input type="text" placeholder="Describe what you want..."/>
+                    </li>
+                    <li>
+                        <button id="set">View Card</button>
+                        <button id="export">Copy Result to Clipboard</button>
+                    </li>
+                    <li>
+                        <p>
+                            For a chance to get your custom card added, press export and message the result to Aaron Meier on Slack!
+                        </p>
+                    </li>
+                </ul>
             </div>
             <section>
                 <div>
