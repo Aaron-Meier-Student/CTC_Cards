@@ -116,3 +116,10 @@ setTimeout(() => {
         Money(0);
     }
 }, 3000);
+
+let testvarskbidi = {
+    "backgroundColor": "black",
+    "borderColor": "black",
+    "boxShadow": "0 0 50px 25px black",
+    "zIndex": "100"
+}
