@@ -11,29 +11,40 @@ const CardsPerPack = 6;
 
 let userData = { Money: "20.00", Cards: [] };
 let changesDetected = false;
+let sortByPrice = true;
+
+document.getElementById("SortButton").addEventListener("click", () => {
+    sortByPrice = !sortByPrice;
+    document.getElementById("SortButton").innerText = sortByPrice
+        ? "Sort: Price"
+        : "Sort: Name";
+        updateInventory();
+});
 
 function updateInventory() {
     document.querySelector("#Inventory > div > div").innerHTML = "";
+    if (sortByPrice) {
+        userData.Cards.sort((a, b) => b.Price - a.Price);
+    } else {
+        userData.Cards.sort((a, b) => {
+            const nameA = a.Display.toLowerCase();
+            const nameB = b.Display.toLowerCase();
 
-    userData.Cards.sort((a, b) => {
-        const nameA = a.Display.toLowerCase();
-        const nameB = b.Display.toLowerCase();
+            if (nameA === nameB) {
+                return b.Price - a.Price;
+            }
 
-        if (nameA === nameB) {
-            return b.Price - a.Price;
-        }
+            const groupPriceA = userData.Cards.filter(
+                (card) => card.Display.toLowerCase() === nameA
+            ).reduce((sum, card) => sum + card.Price, 0);
 
-        const groupPriceA = userData.Cards.filter(
-            (card) => card.Display.toLowerCase() === nameA
-        ).reduce((sum, card) => sum + card.Price, 0);
+            const groupPriceB = userData.Cards.filter(
+                (card) => card.Display.toLowerCase() === nameB
+            ).reduce((sum, card) => sum + card.Price, 0);
 
-        const groupPriceB = userData.Cards.filter(
-            (card) => card.Display.toLowerCase() === nameB
-        ).reduce((sum, card) => sum + card.Price, 0);
-
-        return groupPriceB - groupPriceA || nameA.localeCompare(nameB);
-    });
-
+            return groupPriceB - groupPriceA || nameA.localeCompare(nameB);
+        });
+    }
     let index = 0;
     userData.Cards.forEach((card) => {
         let newCard = document.createElement("div");

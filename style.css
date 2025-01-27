@@ -457,3 +457,12 @@ section.Warning * {
 #SellNormalButton {
     left: calc(100% + 280px) !important;
 }
+
+#SortButton {
+    left: calc(100% + 460px) !important;
+    background-color: blue !important;
+}
+
+#SortButton:hover {
+    box-shadow: 0px 0px 15px 5px rgb(0, 0, 255) !important;
+}
