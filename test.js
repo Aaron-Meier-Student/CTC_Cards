@@ -26,8 +26,8 @@ function updateCard(card) {
         newCard.style[key] = value;
     }
 
-    const filter = getAccurateFilter(`rgb(${card.BaseColor})`, 1);
-    CardPattern.style.filter = filter.split("filter: ")[1].split(";")[0];
+    /*const filter = getAccurateFilter(`rgb(${card.BaseColor})`, 1);
+    CardPattern.style.filter = filter.split("filter: ")[1].split(";")[0];*/
 
     CardPre.style.color = `rgb(${card.PreColor})`;
     CardPre.innerText = card.Pre;

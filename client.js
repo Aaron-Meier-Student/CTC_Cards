@@ -329,14 +329,14 @@ function RollPack(PACK, Cards) {
         document.querySelector("#opener section div").innerHTML = cardTemplate;
         let card = document.querySelector("#opener section div > div");
         let innercard = card.querySelector("div");
+        card.querySelector(
+            "div > .card-back > div"
+        ).style.backgroundImage = `url(${picked.Pattern})`;
         for (let [key, value] of Object.entries(picked.Changes)) {
             if (key == "filter") {
                 const filter = getAccurateFilter(value, 1);
                 card.querySelector("div > .card-back > div").style.filter =
                     filter.split("filter: ")[1].split(";")[0];
-                card.querySelector(
-                    "div > .card-back > div"
-                ).style.backgroundImage = `url(${picked.Pattern})`;
                 continue;
             }
             card.querySelector("div > .card-back").style[key] = value;
