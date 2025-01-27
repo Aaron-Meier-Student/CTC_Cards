@@ -79,6 +79,7 @@ async function ReadUserData() {
 }
 
 async function SaveUserData() {
+    if (!SignedIn) return;
     try {
         const { data: user, error: userError } =
             await supabaseClient.auth.getUser();

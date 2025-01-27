@@ -453,3 +453,7 @@ section.Warning * {
 #contribute:hover, #back:hover {
     background-color: rgb(35, 35, 255);
 }
+
+#SellNormalButton {
+    left: calc(100% + 280px) !important;
+}

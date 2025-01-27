@@ -14,7 +14,26 @@ let changesDetected = false;
 
 function updateInventory() {
     document.querySelector("#Inventory > div > div").innerHTML = "";
-    userData.Cards.sort((a, b) => b.Price - a.Price);
+
+    userData.Cards.sort((a, b) => {
+        const nameA = a.Display.toLowerCase();
+        const nameB = b.Display.toLowerCase();
+
+        if (nameA === nameB) {
+            return b.Price - a.Price;
+        }
+
+        const groupPriceA = userData.Cards.filter(
+            (card) => card.Display.toLowerCase() === nameA
+        ).reduce((sum, card) => sum + card.Price, 0);
+
+        const groupPriceB = userData.Cards.filter(
+            (card) => card.Display.toLowerCase() === nameB
+        ).reduce((sum, card) => sum + card.Price, 0);
+
+        return groupPriceB - groupPriceA || nameA.localeCompare(nameB);
+    });
+
     let index = 0;
     userData.Cards.forEach((card) => {
         let newCard = document.createElement("div");
@@ -118,6 +137,22 @@ function SellMode() {
 }
 
 document.getElementById("SellButton").addEventListener("click", SellMode);
+
+document.getElementById("SellNormalButton").addEventListener("click", () => {
+    let NewUserData = { Money: userData.Money, Cards: [] };
+    for (let i = 0; i < userData.Cards.length; i++) {
+        if (userData.Cards[i].Price <= 1) {
+            Money(-userData.Cards[i].Price);
+        } else {
+            NewUserData.Cards.push(userData.Cards[i]);
+        }
+    }
+    NewUserData.Money = userData.Money;
+    userData = NewUserData;
+    updateInventory();
+    changesDetected = true;
+    SaveUserData();
+});
 
 updateInventory();
 

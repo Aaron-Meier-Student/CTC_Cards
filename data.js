@@ -1,4 +1,4 @@
-let GameData = {
+const GameData = {
     Chances: {
         HYPER: {
             Display: "",
