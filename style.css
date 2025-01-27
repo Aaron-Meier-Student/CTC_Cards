@@ -374,7 +374,11 @@ section {
     margin: 10px 0;
     border: none;
     height: 2px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 30%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(0, 0, 0, 0) 30%
+    );
 }
 
 #Information article > section {
@@ -383,7 +387,11 @@ section {
 }
 section.Warning {
     border-left: 3px solid red !important;
-    background: linear-gradient(90deg, rgba(255,0,0,0.1) 0%, rgba(0,0,0,0) 50%) !important;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0) 50%
+    ) !important;
 }
 
 section.Warning * {
@@ -429,7 +437,8 @@ section.Warning * {
     background-color: rgb(35, 35, 255);
 }
 
-#contribute, #back {
+#contribute,
+#back {
     position: absolute;
     bottom: 15px;
     left: 15px;
@@ -450,7 +459,9 @@ section.Warning * {
     z-index: 100;
 }
 
-#contribute:hover, #back:hover {
+#contribute:hover,
+#back:hover,
+#focus:hover {
     background-color: rgb(35, 35, 255);
 }
 
@@ -465,4 +476,29 @@ section.Warning * {
 
 #SortButton:hover {
     box-shadow: 0px 0px 15px 5px rgb(0, 0, 255) !important;
+}
+
+#focus {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: blue;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 250ms;
+}
+
+#surf {
+    position: absolute;
+    z-index: 100000;
+    right: 15px;
+    bottom: 60px;
+    border-radius: 8px;
 }

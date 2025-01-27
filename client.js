@@ -21,6 +21,10 @@ document.getElementById("SortButton").addEventListener("click", () => {
         updateInventory();
 });
 
+document.getElementById("focus").addEventListener("click", () => {
+    document.getElementById("surf").className = document.getElementById("surf").className == "hidden" ? "" : "hidden";
+});
+
 function updateInventory() {
     document.querySelector("#Inventory > div > div").innerHTML = "";
     if (sortByPrice) {
