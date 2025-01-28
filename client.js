@@ -18,7 +18,7 @@ document.getElementById("SortButton").addEventListener("click", () => {
     document.getElementById("SortButton").innerText = sortByPrice
         ? "Sort: Price"
         : "Sort: Name";
-    updateInventory();
+        updateInventory();
 });
 
 document.getElementById("focus").addEventListener("click", () => {
@@ -185,10 +185,10 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
 document.getElementById("SellLessButton").addEventListener("click", () => {
     let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
     let NewUserData = { Money: userData.Money, Cards: [] };
-    for (let i = 0; i < userData.Cards.length; i++) {
-        if (userData.Cards[i].Price < sellPrice) {
+    for(let i = 0; i < userData.Cards.length; i++){
+        if(userData.Cards[i].Price < sellPrice){
             Money(-userData.Cards[i].Price);
-        } else {
+        }else{
             NewUserData.Cards.push(userData.Cards[i]);
         }
     }
@@ -282,8 +282,8 @@ function getAccurateFilter(value, attempts) {
     return attempts >= 20
         ? filter.filter
         : filter.loss > 0.3
-            ? getAccurateFilter(rgb, attempts + 1)
-            : filter.filter;
+        ? getAccurateFilter(rgb, attempts + 1)
+        : filter.filter;
 }
 
 function RollPack(PACK, Cards) {
@@ -319,7 +319,7 @@ function RollPack(PACK, Cards) {
                     Display: card.name,
                     AltDisplay: "",
                     Price: card.weight,
-                    Pre: [],
+                    Pre: "",
                     Pattern: "",
                     PreColor: "#ffffff",
                     Changes: {},
@@ -335,10 +335,9 @@ function RollPack(PACK, Cards) {
             if (chance.Shared == false) pickedNonShared = true;
             picked.Price += chance.AddedValue;
             multi += chance.Multiplier - 1;
-            picked.Pre = [...picked.Pre, {
-                text: chance.Display,
-                color: chance.Display == "" ? "" : chance.BaseColor
-            }];
+            picked.Pre = chance.Display == "" ? picked.Pre : chance.Display;
+            picked.PreColor =
+                chance.Display == "" ? picked.PreColor : chance.BaseColor;
             picked.AltDisplay =
                 chance.AltDisplay == "" ? picked.AltDisplay : chance.AltDisplay;
             picked.Pattern =
@@ -373,19 +372,10 @@ function RollPack(PACK, Cards) {
             card.querySelector("div > .card-back").style[key] = value;
         }
         card.querySelector("div > .card-front h3").innerText = PACK;
-        console.log("picked pre", picked.pre)
-        card.querySelector("div > .card-back h4:first-child").innerHTML = "";
-        picked.Pre.forEach((pre) => {
-            console.log("current foreach pre", pre)
-            const currentPre = document.createElement("span")
-            currentPre.innerText = pre.text + " ";
-            currentPre.style.color = pre.color;
-            card.querySelector("div > .card-back h4:first-child").appendChild(currentPre);
-        });
-        //card.querySelector("div > .card-back h4:first-child").innerText =
-        //    picked.Pre;
-        //card.querySelector("div > .card-back h4:first-child").style.color =
-        //    picked.PreColor;
+        card.querySelector("div > .card-back h4:first-child").innerText =
+            picked.Pre;
+        card.querySelector("div > .card-back h4:first-child").style.color =
+            picked.PreColor;
         card.querySelector("div > .card-back h4:nth-child(2)").innerText =
             picked.Display;
         card.querySelector("div > .card-back h4:nth-child(3)").innerText =
@@ -398,8 +388,9 @@ function RollPack(PACK, Cards) {
         let XDone = false;
         let checkerX = setInterval(() => {
             card.className = "card shown";
-            innercard.style.transform = `rotateY(${(CardPercentageX / 100) * 180
-                }deg)`;
+            innercard.style.transform = `rotateY(${
+                (CardPercentageX / 100) * 180
+            }deg)`;
             if (!CardDragging && CardPercentageX >= 75) {
                 XDone = true;
                 clearInterval(checkerX);
@@ -410,8 +401,9 @@ function RollPack(PACK, Cards) {
         }, 10);
         let checkerY = setInterval(() => {
             if (!XDone) return;
-            innercard.style.transform = `translateY(${(CardPercentageY / 100) * -100
-                }px) rotateY(180deg)`;
+            innercard.style.transform = `translateY(${
+                (CardPercentageY / 100) * -100
+            }px) rotateY(180deg)`;
             if (!CardDragging && CardPercentageY >= 75) {
                 clearInterval(checkerY);
                 innercard.removeEventListener("mousedown", cardDragY);
