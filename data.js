@@ -26,36 +26,6 @@ const GameData = {
                 border: "6px solid <BASE>",
             },
         },
-        Adaptive: {
-            Display: "Adaptive",
-            AltDisplay: "",
-            AddedValue: 3,
-            Chance: 40,//40
-            Multiplier: 2,
-            Shared: true,
-            BaseColor: "rgb(255,160,0)",
-            Pattern: "",
-            Changes: {
-                "border-image": "linear-gradient(125deg, rgb(255,165,0) 0%, rgb(50,100,255) 100%) 1"
-            },
-            // Apply a blue & orange gradient w/  40 chance and 2 mult
-        },
-        Godly: {
-            Display: "Godly",
-            AltDisplay: "",
-            AddedValue: 5,
-            Chance: 100,//100
-            Multiplier: 5,
-            Shared: true,
-            BaseColor: "rgb(255,255,0)",
-            Pattern: "",
-            Changes: {
-                border: "6px solid <BASE>"
-            },
-        },
-
-        // all card modifiers below here
-        // needs to come after prefixes so they don't get overwritten
         Grayscale: {
             Display: "",
             AltDisplay: "Grayscale",
@@ -84,12 +54,11 @@ const GameData = {
             },
             //
         },
-
         Unusual: {
             Display: "",
             AltDisplay: "Unusual",
             AddedValue: 10,
-            Chance: 100, //100
+            Chance: 100,
             Multiplier: 10,
             Shared: false,
             BaseColor: "rgb(<RANDOM:1-255>, <RANDOM:1-255>, <RANDOM:1-255>)",
@@ -129,7 +98,7 @@ const GameData = {
                 filter: "<BASE>",
             },
         },
-        Blackhole: {
+        New_Variant: {
             Display: "",
             AltDisplay: "Blackhole",
             AddedValue: 50,
