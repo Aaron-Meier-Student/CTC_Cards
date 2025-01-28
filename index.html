@@ -11,6 +11,7 @@
         <script src="https://unpkg.com/@supabase/supabase-js"></script>
         <script src="./client.js" defer></script>
         <script src="./cloud.js" defer></script>
+        <script src="./trade.js" defer></script>
     </head>
     <body>
         <div id="notice" class="hidden">
@@ -30,8 +31,8 @@
                 <div>
                     <button id="btn-Pack Shop" class="active">Pack Shop</button>
                     <button id="btn-Inventory" class="">Inventory</button>
-                    <button disabled id="btn-Trade" class="">Trade</button>
-                    <button id="btn-Information" class="">Information</button>
+                    <button id="btn-Trade" class="">Trade</button>
+                    <button id="btn-Information" class="">Information</butten>
                     <h4 id="fileSize">0 kB</h4>
                     <button id="login">Sign-In with GitHub</button>
                 </div>
@@ -63,9 +64,23 @@
             </section>
             <section id="Trade">
                 <h2>Trade</h2>
+                <!--Dialog menu-->
+                <div>
+                    <span>Input <strong>Username</strong> of person you want to Trade</span>
+                    <input type="text" id="tradeToInput">
+                    <button id="startTradeButton">Start trade</button>
+                </div>
+                <div>
+                    <h3>Your Inventory</h3>
+                    <div>
+                        <!--your inventory rendering or something-->
+                    </div>
+                    <button>Send Request</button>
+                    <!--divider here-->
+                </div>
             </section>
             <section id="Information">
-                <h2>Information</h2>
+                <h2>Informatione</h2>
                 <article>
                     <!--<section>
                         <h3>Changelogs</h3>

@@ -474,7 +474,7 @@ document.addEventListener("keydown", function (event) {
         CardPercentageY = 100;
     }
 });
-
+/*
 function runIfWithinTimeframe(startHour, endHour, callback) {
     const now = new Date();
     const currentHour = now.getHours();
@@ -482,7 +482,7 @@ function runIfWithinTimeframe(startHour, endHour, callback) {
     if (currentHour >= startHour && currentHour < endHour) {
         callback();
     }
-}
+}*/
 
 runIfWithinTimeframe(8, 15, () => {
     document.getElementById("notice").className = "";

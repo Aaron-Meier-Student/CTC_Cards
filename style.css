@@ -517,3 +517,6 @@ section.Warning * {
     bottom: 60px;
     border-radius: 8px;
 }
+input {
+    color:black;
+}

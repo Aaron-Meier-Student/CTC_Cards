@@ -88,14 +88,13 @@ const GameData = {
             Display: "",
             AltDisplay: "4th Dimensional",
             AddedValue: 50,
-            Chance: 1000,
+            Chance: 2,
             Multiplier: 50,
             Shared: false,
             BaseColor: "rgb(0, 85, 255)",
-            Pattern: "./Patterns/4dpattern.png",
+            Pattern: "https://www.imghost.net/ib/I2XWT1DCf6NNlu0_1737992471.gif",
             Changes: {
                 animation: "colorfulFlicker 2s infinite",
-                filter: "<BASE>",
             },
         },
         New_Variant: {
