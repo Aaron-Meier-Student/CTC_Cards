@@ -77,8 +77,17 @@ function updateInventory() {
             newCard.style[key] = value;
         }
 
-        CardPre.style.color = card.PreColor;
-        CardPre.innerText = card.Pre;
+        if(typeof card.Pre === "object"){
+            card.Pre.forEach((pre) => {
+                const currentPre = document.createElement("span")
+                currentPre.innerText = pre.text + " ";
+                currentPre.style.color = pre.color;
+                CardPre.appendChild(currentPre);
+            });
+        }else{
+            CardPre.innerText = card.Pre;
+            CardPre.style.color = card.PreColor;
+        }
         CardName.innerText = card.Display;
         CardSpecial.innerText = card.AltDisplay;
         CardPrice.innerText = `$${card.Price.toFixed(2)}`;
