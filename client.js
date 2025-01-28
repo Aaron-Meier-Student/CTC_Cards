@@ -173,6 +173,23 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
     SaveUserData();
 });
 
+document.getElementById("SellLessButton").addEventListener("click", () => {
+    let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
+    let NewUserData = { Money: userData.Money, Cards: [] };
+    for(let i = 0; i < userData.Cards.length; i++){
+        if(userData.Cards[i].Price < sellPrice){
+            Money(-userData.Cards[i].Price);
+        }else{
+            NewUserData.Cards.push(userData.Cards[i]);
+        }
+    }
+    NewUserData.Money = userData.Money;
+    userData = NewUserData;
+    updateInventory();
+    changesDetected = true;
+    SaveUserData();
+});
+
 updateInventory();
 
 function getJsonSizeInKB(json) {

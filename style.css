@@ -470,8 +470,23 @@ section.Warning * {
 }
 
 #SortButton {
-    left: calc(100% + 460px) !important;
+    left: calc(100% + 720px) !important;
     background-color: blue !important;
+}
+
+#SellLessButton {
+    left: calc(100% + 460px) !important;
+}
+
+#SellLessButton > input {
+    border:1px solid #ff4949;
+    background-color: #fc9393;
+    width:100px;
+    color:black;
+}
+
+#SellLessButton > input:focus {
+    outline:none;
 }
 
 #SortButton:hover {
