@@ -12,7 +12,7 @@ loginButton.addEventListener("click", async () => {
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
             provider: "github",
             options: {
-                redirectTo: window.location.href
+                redirectTo: window.location.href,
             }
         });
 
@@ -116,3 +116,10 @@ setTimeout(() => {
         Money(0);
     }
 }, 3000);
+
+let testvarskbidi = {
+    "backgroundColor": "black",
+    "borderColor": "black",
+    "boxShadow": "0 0 50px 25px black",
+    "zIndex": "100"
+}

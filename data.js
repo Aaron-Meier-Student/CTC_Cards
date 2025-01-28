@@ -10,7 +10,7 @@ const GameData = {
             BaseColor: "100%",
             Pattern: "",
             Changes: {
-                textTransform: "uppercase"
+                textTransform: "uppercase",
             },
         },
         Hexed: {
@@ -39,6 +39,21 @@ const GameData = {
                 border: "6px solid rgb(<BASE>, <BASE>, <BASE>)",
             },
         },
+        Digital: {
+            Display: "",
+            AltDisplay: "Digital",
+            AddedValue: 15,
+            Chance: 75,
+            Multiplier: 2,
+            Shared: false,
+            BaseColor: "rgb(88,66,255)",
+            Pattern:
+                "https://subcodevs.com/wp-content/uploads/2024/06/Animation.gif",
+            Changes: {
+                border: "6px solid <BASE>",
+            },
+            //
+        },
         Unusual: {
             Display: "",
             AltDisplay: "Unusual",
@@ -47,7 +62,8 @@ const GameData = {
             Multiplier: 10,
             Shared: false,
             BaseColor: "rgb(<RANDOM:1-255>, <RANDOM:1-255>, <RANDOM:1-255>)",
-            Pattern: "https://static.vecteezy.com/system/resources/thumbnails/048/234/565/small_2x/a-black-and-white-image-of-a-pattern-of-triangles-on-a-transparent-background-png.png",
+            Pattern:
+                "https://static.vecteezy.com/system/resources/thumbnails/048/234/565/small_2x/a-black-and-white-image-of-a-pattern-of-triangles-on-a-transparent-background-png.png",
             Changes: {
                 filter: "<BASE>",
                 border: "6px solid <BASE>",
@@ -81,9 +97,26 @@ const GameData = {
                 animation: "colorfulFlicker 2s infinite",
             },
         },
+        New_Variant: {
+            Display: "",
+            AltDisplay: "Blackhole",
+            AddedValue: 50,
+            Chance: 5000,
+            Multiplier: 75,
+            Shared: false,
+            BaseColor: "rgb(0, 0, 0)",
+            Pattern: "",
+            Changes: {
+                backgroundColor: "black",
+                border: "1px solid orange",
+                boxShadow: "0 0 100px 100px black",
+                zIndex: "100",
+                animation: "shake 10ms infinite"
+            },
+            //
+        },
     },
     Cards: [
-
         // Software & Game Development AM
         ["Isaiah Cargill", 1],
         ["Jacob Carrell", 1],
@@ -140,7 +173,6 @@ const GameData = {
 
         // Speical
         ["The Sigma", 1000],
-
     ],
     Packs: {
         AM2425: {
@@ -190,7 +222,8 @@ const GameData = {
                 "Anthony Flowers",
                 "Preston Franklin",
                 "Yosgart Garcia",
-                "Thomas Gilligan", ,
+                "Thomas Gilligan",
+                ,
                 "Ryan Haug",
                 "Clyde Hettinga",
                 "Gavin Inman",

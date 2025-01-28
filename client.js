@@ -21,6 +21,10 @@ document.getElementById("SortButton").addEventListener("click", () => {
         updateInventory();
 });
 
+document.getElementById("focus").addEventListener("click", () => {
+    document.getElementById("surf").className = document.getElementById("surf").className == "hidden" ? "" : "hidden";
+});
+
 function updateInventory() {
     document.querySelector("#Inventory > div > div").innerHTML = "";
     if (sortByPrice) {
@@ -92,6 +96,8 @@ function SellMode() {
         .removeEventListener("click", SellMode);
     updateInventory();
     document.getElementById("SellButton").innerText = "SELL SELECTED (0)";
+    document.getElementById("SellNormalButton").style = "left: calc(100% + 334px) !important;";
+    document.getElementById("SortButton").style = "left: calc(100% + 515px) !important;";
     let Indexes = [];
     function addToList(e) {
         let index = Number(e.currentTarget.getAttribute("card-index"));
@@ -116,6 +122,8 @@ function SellMode() {
             .getElementById("SellButton")
             .removeEventListener("click", sellHandler);
         document.getElementById("SellButton").innerText = "SELL MODE";
+        document.getElementById("SellNormalButton").style = "";
+        document.getElementById("SortButton").style = "";
         document
             .querySelectorAll("#Inventory .card-back")
             .forEach((element) => {
@@ -155,6 +163,23 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
         if (userData.Cards[i].Price <= 1) {
             Money(-userData.Cards[i].Price);
         } else {
+            NewUserData.Cards.push(userData.Cards[i]);
+        }
+    }
+    NewUserData.Money = userData.Money;
+    userData = NewUserData;
+    updateInventory();
+    changesDetected = true;
+    SaveUserData();
+});
+
+document.getElementById("SellLessButton").addEventListener("click", () => {
+    let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
+    let NewUserData = { Money: userData.Money, Cards: [] };
+    for(let i = 0; i < userData.Cards.length; i++){
+        if(userData.Cards[i].Price < sellPrice){
+            Money(-userData.Cards[i].Price);
+        }else{
             NewUserData.Cards.push(userData.Cards[i]);
         }
     }
@@ -325,14 +350,14 @@ function RollPack(PACK, Cards) {
         document.querySelector("#opener section div").innerHTML = cardTemplate;
         let card = document.querySelector("#opener section div > div");
         let innercard = card.querySelector("div");
+        card.querySelector(
+            "div > .card-back > div"
+        ).style.backgroundImage = `url(${picked.Pattern})`;
         for (let [key, value] of Object.entries(picked.Changes)) {
             if (key == "filter") {
                 const filter = getAccurateFilter(value, 1);
                 card.querySelector("div > .card-back > div").style.filter =
                     filter.split("filter: ")[1].split(";")[0];
-                card.querySelector(
-                    "div > .card-back > div"
-                ).style.backgroundImage = `url(${picked.Pattern})`;
                 continue;
             }
             card.querySelector("div > .card-back").style[key] = value;
