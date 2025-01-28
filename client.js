@@ -182,7 +182,10 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
     SaveUserData();
 });
 
-document.getElementById("SellLessButton").addEventListener("click", () => {
+document.getElementById("SellLessButton").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON")
+        return;
+
     let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
     let NewUserData = { Money: userData.Money, Cards: [] };
     for(let i = 0; i < userData.Cards.length; i++){
