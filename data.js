@@ -52,7 +52,21 @@ const GameData = {
             Changes: {
                 border: "6px solid <BASE>",
             },
-            //
+        },
+        Fractured: {
+            Display: "",
+            AltDisplay: "Fractured",
+            AddedValue: 20,
+            Chance: 85,
+            Multiplier: 2,
+            Shared: false,
+            BaseColor: "rgb(255,255,255)",
+            Pattern: "",
+            Changes: {
+                borderImageSource:
+                    "url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ded4c09d-6f31-4249-b9c5-5918e01082f3/deza8e9-b79fc074-2c89-4214-b0cb-73152b904149.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RlZDRjMDlkLTZmMzEtNDI0OS1iOWM1LTU5MThlMDEwODJmM1wvZGV6YThlOS1iNzlmYzA3NC0yYzg5LTQyMTQtYjBjYi03MzE1MmI5MDQxNDkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Lr3WO0KgOnsyrH2giFIgRXg2jSa6zJIJPCpwXJpichY)",
+                borderImageSlice: "250",
+            },
         },
         Unusual: {
             Display: "",

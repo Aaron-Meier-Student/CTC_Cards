@@ -22,7 +22,8 @@ document.getElementById("SortButton").addEventListener("click", () => {
 });
 
 document.getElementById("focus").addEventListener("click", () => {
-    document.getElementById("surf").className = document.getElementById("surf").className == "hidden" ? "" : "hidden";
+    document.getElementById("surf").className =
+        document.getElementById("surf").className == "hidden" ? "" : "hidden";
 });
 
 function updateInventory() {
@@ -79,7 +80,7 @@ function updateInventory() {
 
         if (typeof card.Pre === "object") {
             card.Pre.forEach((pre) => {
-                const currentPre = document.createElement("span")
+                const currentPre = document.createElement("span");
                 currentPre.innerText = pre.text + " ";
                 currentPre.style.color = pre.color;
                 CardPre.appendChild(currentPre);
@@ -105,9 +106,12 @@ function SellMode() {
         .removeEventListener("click", SellMode);
     updateInventory();
     document.getElementById("SellButton").innerText = "SELL SELECTED (0)";
-    document.getElementById("SellNormalButton").style = "left: calc(100% + 334px) !important;";
-    document.getElementById("SortButton").style = "left: calc(100% + 774px) !important;";
-    document.getElementById("SellLessButton").style = "left: calc(100% + 515px) !important;";
+    document.getElementById("SellNormalButton").style =
+        "left: calc(100% + 334px) !important;";
+    document.getElementById("SortButton").style =
+        "left: calc(100% + 774px) !important;";
+    document.getElementById("SellLessButton").style =
+        "left: calc(100% + 515px) !important;";
     let Indexes = [];
     function addToList(e) {
         let index = Number(e.currentTarget.getAttribute("card-index"));
@@ -186,7 +190,9 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
 
 document.getElementById("SellLessButton").addEventListener("click", (e) => {
     if (e.target.type === "number") return;
-    let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
+    let sellPrice = Number(
+        document.querySelector("#SellLessButton > input").value
+    );
     let NewUserData = { Money: userData.Money, Cards: [] };
     for (let i = 0; i < userData.Cards.length; i++) {
         if (userData.Cards[i].Price < sellPrice) {
@@ -285,8 +291,8 @@ function getAccurateFilter(value, attempts) {
     return attempts >= 20
         ? filter.filter
         : filter.loss > 0.3
-            ? getAccurateFilter(rgb, attempts + 1)
-            : filter.filter;
+        ? getAccurateFilter(rgb, attempts + 1)
+        : filter.filter;
 }
 
 function RollPack(PACK, Cards) {
@@ -391,8 +397,9 @@ function RollPack(PACK, Cards) {
         let XDone = false;
         let checkerX = setInterval(() => {
             card.className = "card shown";
-            innercard.style.transform = `rotateY(${(CardPercentageX / 100) * 180
-                }deg)`;
+            innercard.style.transform = `rotateY(${
+                (CardPercentageX / 100) * 180
+            }deg)`;
             if (!CardDragging && CardPercentageX >= 75) {
                 XDone = true;
                 clearInterval(checkerX);
@@ -403,8 +410,9 @@ function RollPack(PACK, Cards) {
         }, 10);
         let checkerY = setInterval(() => {
             if (!XDone) return;
-            innercard.style.transform = `translateY(${(CardPercentageY / 100) * -100
-                }px) rotateY(180deg)`;
+            innercard.style.transform = `translateY(${
+                (CardPercentageY / 100) * -100
+            }px) rotateY(180deg)`;
             if (!CardDragging && CardPercentageY >= 75) {
                 clearInterval(checkerY);
                 innercard.removeEventListener("mousedown", cardDragY);
