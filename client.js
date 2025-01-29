@@ -18,7 +18,7 @@ document.getElementById("SortButton").addEventListener("click", () => {
     document.getElementById("SortButton").innerText = sortByPrice
         ? "Sort: Price"
         : "Sort: Name";
-        updateInventory();
+    updateInventory();
 });
 
 document.getElementById("focus").addEventListener("click", () => {
@@ -77,14 +77,14 @@ function updateInventory() {
             newCard.style[key] = value;
         }
 
-        if(typeof card.Pre === "object"){
+        if (typeof card.Pre === "object") {
             card.Pre.forEach((pre) => {
                 const currentPre = document.createElement("span")
                 currentPre.innerText = pre.text + " ";
                 currentPre.style.color = pre.color;
                 CardPre.appendChild(currentPre);
             });
-        }else{
+        } else {
             CardPre.innerText = card.Pre;
             CardPre.style.color = card.PreColor;
         }
@@ -182,13 +182,14 @@ document.getElementById("SellNormalButton").addEventListener("click", () => {
     SaveUserData();
 });
 
-document.getElementById("SellLessButton").addEventListener("click", () => {
+document.getElementById("SellLessButton").addEventListener("click", (e) => {
+    if (e.target.type === "number") return;
     let sellPrice = Number(document.querySelector("#SellLessButton > input").value);
     let NewUserData = { Money: userData.Money, Cards: [] };
-    for(let i = 0; i < userData.Cards.length; i++){
-        if(userData.Cards[i].Price < sellPrice){
+    for (let i = 0; i < userData.Cards.length; i++) {
+        if (userData.Cards[i].Price < sellPrice) {
             Money(-userData.Cards[i].Price);
-        }else{
+        } else {
             NewUserData.Cards.push(userData.Cards[i]);
         }
     }
@@ -282,8 +283,8 @@ function getAccurateFilter(value, attempts) {
     return attempts >= 20
         ? filter.filter
         : filter.loss > 0.3
-        ? getAccurateFilter(rgb, attempts + 1)
-        : filter.filter;
+            ? getAccurateFilter(rgb, attempts + 1)
+            : filter.filter;
 }
 
 function RollPack(PACK, Cards) {
@@ -388,9 +389,8 @@ function RollPack(PACK, Cards) {
         let XDone = false;
         let checkerX = setInterval(() => {
             card.className = "card shown";
-            innercard.style.transform = `rotateY(${
-                (CardPercentageX / 100) * 180
-            }deg)`;
+            innercard.style.transform = `rotateY(${(CardPercentageX / 100) * 180
+                }deg)`;
             if (!CardDragging && CardPercentageX >= 75) {
                 XDone = true;
                 clearInterval(checkerX);
@@ -401,9 +401,8 @@ function RollPack(PACK, Cards) {
         }, 10);
         let checkerY = setInterval(() => {
             if (!XDone) return;
-            innercard.style.transform = `translateY(${
-                (CardPercentageY / 100) * -100
-            }px) rotateY(180deg)`;
+            innercard.style.transform = `translateY(${(CardPercentageY / 100) * -100
+                }px) rotateY(180deg)`;
             if (!CardDragging && CardPercentageY >= 75) {
                 clearInterval(checkerY);
                 innercard.removeEventListener("mousedown", cardDragY);
