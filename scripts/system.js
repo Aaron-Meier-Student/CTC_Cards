@@ -1,4 +1,3 @@
-// Must be updated when new componets are created.
 const components = ["card", "roller", "pack", "tab"];
 
 function loadScript(component) {
@@ -25,6 +24,6 @@ function loadScripts() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", loadScripts);
+loadScripts();
 
 function Main() {}
