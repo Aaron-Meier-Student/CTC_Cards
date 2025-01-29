@@ -61,12 +61,13 @@ async function ReadUserData() {
                 updateInventory();
             } else {
                 const { data, error } = await supabaseClient
-                    .from("UserData")
-                    .insert({
-                        id: user.user.id,
-                        Money: userData.Money,
-                        Cards: JSON.stringify(userData.Cards),
-                    });
+                .from("UserData")
+                .insert({
+                    id: user.user.id,
+                    Money: userData.Money,
+                    Cards: JSON.stringify(userData.Cards),
+                    Username: user.user.user_metadata.user_name
+                });
                 MoneyLock = false;
                 dataloaded = true;
                 Money(0);
