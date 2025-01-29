@@ -27,7 +27,7 @@ async function getInventoryFromUsername(username) {
         return "";
     }
 
-    return data[0].Cards;
+    return data;
 }
 
 async function getInventoryFromUUID(uuid) {
