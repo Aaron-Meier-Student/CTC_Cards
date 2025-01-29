@@ -21,14 +21,13 @@ async function getInventoryFromUsername(username) {
         .from("UserData")
         .select("Cards")
         .eq("Username", username)
-        .single();
 
     if (error) {
         console.error("Error fetching user data:", error);
         return "";
     }
 
-    return data;
+    return data[0].Cards;
 }
 
 async function getInventoryFromUUID(uuid) {
