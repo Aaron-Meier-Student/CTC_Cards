@@ -31,7 +31,7 @@
                 <div>
                     <button id="btn-Pack Shop" class="active">Pack Shop</button>
                     <button id="btn-Inventory" class="">Inventory</button>
-                    <button disabled id="btn-Trade" class="">Trade</button>
+                    <button id="btn-Trade" class="">Trade</button>
                     <button id="btn-Information" class="">Information</button>
                     <h4 id="fileSize">0 kB</h4>
                     <button id="login">Sign-In with GitHub</button>
@@ -66,17 +66,21 @@
                 <h2>Trade</h2>
                 <!--Dialog menu-->
                 <div>
-                    <span>Input <strong>Username</strong> of person you want to Trade</span>
+                    <span>Input <strong>Username</strong> of person you want to Trade (case sensitive)</span>
                     <input type="text" id="tradeToInput">
                     <button id="startTradeButton">Start trade</button>
                 </div>
                 <div>
                     <h3>Your Inventory</h3>
-                    <div>
+                    <div id="Trade-YourInventory">
                         <!--your inventory rendering or something-->
                     </div>
                     <button>Send Request</button>
                     <!--divider here-->
+                    <h3>Username's Inventory</h3>
+                    <div id="Trade-OtherInventory">
+                        <!--their inventory-->
+                    </div>
                 </div>
             </section>
             <section id="Information">
