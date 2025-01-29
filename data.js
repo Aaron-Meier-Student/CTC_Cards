@@ -98,7 +98,7 @@ const GameData = {
                 filter: "<BASE>",
             },
         },
-        New_Variant: {
+        Blackhole: {
             Display: "",
             AltDisplay: "Blackhole",
             AddedValue: 50,
@@ -109,10 +109,14 @@ const GameData = {
             Pattern: "",
             Changes: {
                 backgroundColor: "black",
-                border: "1px solid orange",
                 boxShadow: "0 0 100px 100px black",
                 zIndex: "100",
-                animation: "shake 10ms infinite"
+                outline: "4px solid transparent",
+                border: "2px solid transparent",
+                borderImageSource:
+                    "linear-gradient(0deg, orange, rgb(255, 214, 139)",
+                borderImageSlice: "1",
+                animation: "blackhole 1s infinite",
             },
             //
         },

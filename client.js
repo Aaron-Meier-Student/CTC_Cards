@@ -106,7 +106,8 @@ function SellMode() {
     updateInventory();
     document.getElementById("SellButton").innerText = "SELL SELECTED (0)";
     document.getElementById("SellNormalButton").style = "left: calc(100% + 334px) !important;";
-    document.getElementById("SortButton").style = "left: calc(100% + 515px) !important;";
+    document.getElementById("SortButton").style = "left: calc(100% + 774px) !important;";
+    document.getElementById("SellLessButton").style = "left: calc(100% + 515px) !important;";
     let Indexes = [];
     function addToList(e) {
         let index = Number(e.currentTarget.getAttribute("card-index"));
@@ -133,6 +134,7 @@ function SellMode() {
         document.getElementById("SellButton").innerText = "SELL MODE";
         document.getElementById("SellNormalButton").style = "";
         document.getElementById("SortButton").style = "";
+        document.getElementById("SellLessButton").style = "";
         document
             .querySelectorAll("#Inventory .card-back")
             .forEach((element) => {
