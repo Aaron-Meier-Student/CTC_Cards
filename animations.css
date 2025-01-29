@@ -136,4 +136,28 @@
     }
 }
 
-/* {"animation": "warpPulse 2s ease-in-out infinite"} */
+@keyframes blackhole {
+    0% {
+        border-image-source: linear-gradient(0deg, orange, rgb(255, 214, 139))
+    }
+    25% {
+        border-image-source: linear-gradient(90deg, orange, rgb(255, 214, 139))
+    }
+    50% {
+        border-image-source: linear-gradient(180deg, orange, rgb(255, 214, 139))
+    }
+    75% {
+        border-image-source: linear-gradient(270deg, orange, rgb(255, 214, 139))
+    }
+    100% {
+        border-image-source: linear-gradient(360deg, orange, rgb(255, 214, 139))
+    }
+}
+
+/* {
+"outline": "4px solid transparent",
+"border": "2px solid transparent",
+"borderImageSource": "linear-gradient(0deg, orange, rgb(255, 214, 139)",
+"borderImageSlice": "1",
+"animation": "blackhole 1s infinite"
+} */
