@@ -1,29 +1,34 @@
-const components = ["card", "roller", "pack", "tab"];
+const components = ["card", "roller", "pack", "prompt", "notification"];
+const utils = ["version", "supabase"];
+const scripts = ["client", "tabs"];
 
-function loadScript(component) {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = `components/${component}.js`;
-    script.async = true;
+function loadScript(dir, component) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = `${dir}/${component}.js`;
+        script.async = true;
 
-    script.onload = resolve;
-    script.onerror = reject;
+        script.onload = resolve;
+        script.onerror = reject;
 
-    document.body.appendChild(script);
-  });
-}
-
-function loadScripts() {
-  const scriptPromises = components.map((component) => loadScript(component));
-  Promise.all(scriptPromises)
-    .then(() => {
-      Main();
-    })
-    .catch(() => {
-      console.error("Error loading components!");
+        document.body.appendChild(script);
     });
 }
 
-loadScripts();
+async function loadScripts(dir, files) {
+    try {
+        const scriptPromises = files.map((component) =>
+            loadScript(dir, component)
+        );
+        await Promise.all(scriptPromises);
+    } catch (error) {
+        console.error("Error loading components!", error);
+    }
+}
+async function loadAll() {
+    await loadScripts("components", components);
+    await loadScripts("utils", utils);
+    await loadScripts("scripts", scripts);
+}
 
-function Main() {}
+loadAll();
