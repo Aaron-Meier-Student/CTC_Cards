@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+:root {
+    --best-green: #00ff88;
+
+    --button-blue: #00f;
+    --button-blue-hover: #3d3dff;
+}
+
 * {
     color: white;
     font-family: Montserrat;
@@ -32,4 +39,87 @@ body {
     background-image: linear-gradient(to top, #0f1011, #090a0e);
     background-repeat: repeat-y;
     background-size: 100% 10px;
+}
+
+#topbar {
+    position: absolute;
+    padding: 0 15px;
+    width: calc(100% - 30px);
+    height: 50px;
+    display:  flex;
+    align-items: center;
+}
+
+#topbar .tabs {
+    margin-left: 30px;
+    height: 100%;
+    display: flex;
+}
+
+#topbar .tabs > button {
+    margin: 0;
+    background-color: transparent;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+#topbar .tabs > button:hover {
+    border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+#topbar .tabs > button.active {
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0)
+    );
+    border-bottom: 1px solid white;
+}
+
+#topbar .data{
+    margin: 0 30px;
+}
+
+#topbar .user {
+    margin: 0 30px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: var(--button-blue);
+    transition: 250ms;
+}
+
+#topbar .user:hover {
+    background-color: var(--button-blue-hover);
+}
+
+#moneyDisplay {
+    position: absolute;
+    right: 15px;
+    color: var(--best-green);
+}
+
+#tabs {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: 50px;
+    height: calc(100% - 50px);
+    transition: 250ms;
+}
+
+#tabs > div {
+    padding: 15px;
+    min-width: calc(100% - 30px);
+    height: calc(100% - 30px);
 }

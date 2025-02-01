@@ -11,7 +11,7 @@ function loadScript(dir, component) {
         script.onload = resolve;
         script.onerror = reject;
 
-        document.body.appendChild(script);
+        document.head.appendChild(script);
     });
 }
 
