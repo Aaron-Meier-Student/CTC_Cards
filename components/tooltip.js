@@ -3,6 +3,7 @@ function tooltip({ text, dom, delay = 1 }) {
     tooltip.style.opacity = "0";
     tooltip.style.padding = "5px 10px";
     tooltip.style.backgroundColor = "#1F2329";
+    tooltip.style.zIndex = "1000";
     tooltip.style.position = "absolute";
     tooltip.style.pointerEvents = "none";
     tooltip.style.transform = "translateX(-50%)";
