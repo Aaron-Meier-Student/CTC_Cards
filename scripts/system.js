@@ -1,4 +1,13 @@
-const components = ["card", "roller", "pack", "prompt", "notification"];
+const components = [
+    "card",
+    "roller",
+    "pack",
+    "prompt",
+    "notification",
+    "money",
+    "tooltip",
+];
+
 const utils = ["version", "supabase"];
 const scripts = ["client", "tabs"];
 

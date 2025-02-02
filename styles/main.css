@@ -63,7 +63,7 @@ body {
     outline: none;
     border: none;
     border-bottom: 1px solid transparent;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 20px;
     padding: 0 20px;
     cursor: pointer;
@@ -75,6 +75,7 @@ body {
 }
 
 #topbar .tabs > button.active {
+    font-weight: 500;
     background-image: linear-gradient(
         to top,
         rgba(255, 255, 255, 0.1),
@@ -115,7 +116,7 @@ body {
     display: flex;
     top: 50px;
     height: calc(100% - 50px);
-    transition: 250ms;
+    transition: 200ms ease-in-out;
 }
 
 #tabs > div {
