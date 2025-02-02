@@ -26,6 +26,11 @@ class Money {
     }
 
     updateDisplay() {
-        document.getElementById("moneyDisplay").innerText = `$${this._money}`
+        document.getElementById(
+            "moneyDisplay"
+        ).innerText = `$${this._money.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        })}`;
     }
 }
