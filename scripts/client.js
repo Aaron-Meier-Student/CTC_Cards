@@ -8,6 +8,13 @@ function determineValue(card) {
     return price;
 }
 
+
+notification({
+    title: "Welcome, User!",
+    description: "Thanks for visiting my Card Game!",
+    delay: 15,
+});
+
 tooltip({
     dom: document.getElementById("signin"),
     text: "Signing in lets you save your progress!",

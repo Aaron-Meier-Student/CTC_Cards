@@ -46,3 +46,10 @@ body {
     min-width: calc(100% - 30px);
     height: calc(100% - 30px);
 }
+
+.fadeIn {
+    opacity: 1;
+}
+.fadeOut {
+    opacity: 0;
+}
