@@ -9,9 +9,9 @@ const components = [
 ];
 
 const utils = ["version", "supabase"];
-const scripts = ["client", "tabs"];
+const scripts = ["client", "tabs", "packShop"];
 const assets = ["cards", "variants", "packs"];
-const styles = ["main", "topbar", "notification"]
+const styles = ["main", "topbar", "notification", "packShop"]
 
 function deepFreeze(obj) {
     Object.freeze(obj);
@@ -49,10 +49,10 @@ async function loadFiles(dir, files, type = "script") {
 
 async function loadAll() {
     await loadFiles("styles", styles, "link");
-    await loadFiles("components", components);
-    await loadFiles("utils", utils);
-    await loadFiles("scripts", scripts);
     await loadFiles("assets", assets);
+    await loadFiles("utils", utils);
+    await loadFiles("components", components);
+    await loadFiles("scripts", scripts);
 }
 
 loadAll();

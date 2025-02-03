@@ -62,6 +62,6 @@ const dataPacks = {
             "Alec Tackitt",
             "Keagan Ziemann-Bell",
         ],
-    },
+    }
 };
 deepFreeze(dataPacks);
