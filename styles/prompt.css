@@ -1,0 +1,118 @@
+#promptHolder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 500ms;
+}
+
+#promptDisplay {
+    background-color: #1f2329;
+    padding: 20px;
+    width: 275px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#promptDisplay h2 {
+    margin-bottom: 20px;
+}
+
+#promptDisplay > * {
+    position: relative;
+    margin: 5px 0;
+    padding: 0;
+    width: 95%;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#promptDisplay input {
+    background-color: #15181d;
+    padding: 0 10px;
+    margin: 0;
+    cursor: text;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    width: calc(100% - 20px);
+    height: 100%;
+}
+
+#promptDisplay button {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 250ms;
+}
+#promptDisplay button.sso {
+    height: 35px;
+    width: 97%;
+    background-color: #101214;
+    border: 3px solid #1f2329;
+    outline: 1px solid rgba(255,255,255,0.05);
+}
+#promptDisplay button:not(:disabled):hover {
+    filter: contrast(75%);
+}
+#promptDisplay button.sso:not(:disabled):hover {
+    filter: contrast(95%);
+}
+
+#promptDisplay > div:not(.input) {
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2px;
+    margin: 20px 0 !important; 
+    cursor: default;
+}
+#promptDisplay > div:not(.input) * {
+    background-color: #1f2329;
+    padding: 0 15px;
+    cursor: default;
+}
+
+#promptDisplay *:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#promptDisplay > * img {
+    margin-right: 15px;
+    height: 50%;
+}
+#promptDisplay > *:disabled::after, #promptDisplay > div:has(input:disabled) div {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: transparent;
+    z-index: 2;
+    background-image: url("../assets/icons/lock-solid.svg");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    background-position: 50%;
+}

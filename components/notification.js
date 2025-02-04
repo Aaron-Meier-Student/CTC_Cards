@@ -21,5 +21,4 @@ function notification({ title, description, delay }) {
         notification.remove();
     }, delay * 1000 + 250);
     document.getElementById("notificationHolder").appendChild(notification);
-    return notification;
 }

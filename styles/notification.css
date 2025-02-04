@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: end;
     justify-content: end;
+    z-index: 10000;
 }
 
 #notificationHolder > div {
