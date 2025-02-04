@@ -47,7 +47,6 @@ body {
     height: calc(100% - 30px);
 }
 
-
 .hidden {
     display: none !important;
 }

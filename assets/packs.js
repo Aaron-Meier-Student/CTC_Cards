@@ -2,6 +2,7 @@ const dataPacks = {
     AM2425: {
         Display: "24-25 AM",
         Image: "",
+        CardsPerPack: 6,
         Price: 10,
         Cards: [
             "Mr. Luyk",
@@ -35,6 +36,7 @@ const dataPacks = {
     PM2425: {
         Display: "24-25 PM",
         Image: "",
+        CardsPerPack: 6,
         Price: 15,
         Cards: [
             "Mr. Luyk",
@@ -62,6 +64,6 @@ const dataPacks = {
             "Alec Tackitt",
             "Keagan Ziemann-Bell",
         ],
-    }
+    },
 };
 deepFreeze(dataPacks);
