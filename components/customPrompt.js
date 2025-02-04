@@ -1,5 +1,4 @@
 function customPrompt({ title, inputs }) {
-    console.log(title, inputs);
     const promptHolder = document.getElementById("promptHolder");
     const customPrompt = document.getElementById("promptDisplay");
     customPrompt.innerHTML = `<h2>${title}</h2>`;
