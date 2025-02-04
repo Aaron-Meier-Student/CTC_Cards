@@ -25,6 +25,7 @@
 
 #promptDisplay h2 {
     margin-bottom: 20px;
+    cursor: default;
 }
 
 #promptDisplay > * {
