@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: 500ms;
+    transition: 250ms;
 }
 
 #promptDisplay {

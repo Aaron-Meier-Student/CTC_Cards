@@ -37,7 +37,7 @@ function closeCustomPrompt() {
     promptHolder.className = "fadeOut";
     setTimeout(() => {
         promptHolder.className = "fadeOut hidden";
-    }, 500);
+    }, 250);
 }
 
 document.getElementById("promptHolder").addEventListener("click", (e) => {
