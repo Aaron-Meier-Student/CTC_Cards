@@ -11,7 +11,7 @@ const components = [
 const utils = ["version", "supabase"];
 const scripts = ["client", "tabs", "packShop"];
 const assets = ["cards", "variants", "packs"];
-const styles = ["main", "topbar", "notification", "store", "prompt"]
+const styles = ["main", "topbar", "notification", "store", "prompt", "roller", "card"]
 
 function deepFreeze(obj) {
     Object.freeze(obj);

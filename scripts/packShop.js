@@ -11,16 +11,17 @@ const packShop = document.getElementById("packShop");
 let selectedPack = 0;
 let packSwapDebounce = false;
 
-function clearListeners() {
-    document.querySelectorAll("#packShop .pack").forEach((pack) => {
-        pack.removeEventListener("click", swapClickHandler);
-        pack.removeEventListener("click", purchaseClickHandler);
-    });
-}
-
-function purchaseHandler() {
+function purchaseHandler(price, cards, amount) {
+    if (packSwapDebounce) return;
+    packSwapDebounce = true;
+    const canPurchase = money.withdraw(price)
+    if (!canPurchase) return;
+    const rollerHolder = document.getElementById("rollerHolder");
     const pickedPack = getPacks(selectedPack)[1];
-    console.log(pickedPack);
+    rollerHolder.className = "fadeOut";
+    setTimeout(() => {
+        rollerHolder.className = "fadeIn";
+    }, 100);
 }
 
 function renderPackDisplay() {
@@ -37,7 +38,9 @@ function renderPackDisplay() {
 
         packShop.appendChild(newPack);
         if (i == 1) {
-            newPack.addEventListener("click", purchaseHandler);
+            newPack.addEventListener("click", () => {
+                purchaseHandler(packsToDisplay[1].Price, packsToDisplay[1].Cards, packsToDisplay[1].CardsPerPack);
+            });
         } else {
             newPack.addEventListener("click", () => {
                 if (packSwapDebounce) return;

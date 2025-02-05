@@ -1,0 +1,20 @@
+.card {
+    width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    border: 6px solid white;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 22px;
+    height: 100%;
+}

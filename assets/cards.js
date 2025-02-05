@@ -23,9 +23,9 @@ const dataCards = {
     "Whitney Wolf": 1,
     "Seth Woods": 1,
     "Adryann Cleveland": 5,
-    "Xavier Ick": 5,
+    "Xavier Ickes": 5,
 
-    // Software & Game Development PM
+    // Software & Game Development PM // 20f8bc
     "Dylan Bruner": 1,
     "Andrew Creswick": 1,
     "Joshua Fish": 1,

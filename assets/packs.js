@@ -30,7 +30,7 @@ const dataPacks = {
             "Whitney Wolf",
             "Seth Woods",
             "Adryann Cleveland",
-            "Xavier Ick",
+            "Xavier Ickes",
         ],
     },
     PM2425: {
