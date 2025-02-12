@@ -22,6 +22,8 @@
 
 #rollerHolder > div > div {
     margin: 0 25px;
+    width: 300px;
+    height: 500px;
 }
 
 #rollerHolder > button {

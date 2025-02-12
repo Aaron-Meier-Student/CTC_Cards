@@ -1,16 +1,18 @@
 const dataVariants = {
-    "HYPER": {
-        Display: "",
-        AltDisplay: "",
-        Chance: 5,
-        AddedValue: 1,
-        Multiplier: 1.2,
-        Shared: true,
-        BaseColor: "100%",
-        Pattern: "",
-        Changes: {
-            textTransform: "uppercase",
+    "TEMPLATE": {
+        Chance: 0,
+        priceFactor: ["+1","*2.3"],
+        builtInComponents: {
+            trait: "Template",
+            traitColor: "#fff"
         },
+        styleComponents: {
+
+        },
+        customComponents: {
+            location: "",
+            content: ""
+        }
     },
     "Hexed": {
         Display: "TUP",

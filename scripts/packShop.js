@@ -18,6 +18,7 @@ function purchaseHandler(price, cards, amount) {
     if (!canPurchase) return;
     const rollerHolder = document.getElementById("rollerHolder");
     const pickedPack = getPacks(selectedPack)[1];
+    roller({ count: 1, pack: pickedPack });
     rollerHolder.className = "fadeOut";
     setTimeout(() => {
         rollerHolder.className = "fadeIn";

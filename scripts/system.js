@@ -8,7 +8,7 @@ const components = [
     "tooltip",
 ];
 
-const utils = ["version", "supabase"];
+const utils = ["version", "supabase", "rgbToFilter"];
 const scripts = ["client", "tabs", "packShop"];
 const assets = ["cards", "variants", "packs"];
 const styles = ["main", "topbar", "notification", "store", "prompt", "roller", "card"]
