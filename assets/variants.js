@@ -1,7 +1,8 @@
 const dataVariants = {
     "TEMPLATE": {
-        Chance: 0,
+        chance: 0,
         priceFactor: ["+1","*2.3"],
+        shared: false,
         builtInComponents: {
             trait: "Template",
             traitColor: "#fff"
@@ -10,35 +11,55 @@ const dataVariants = {
 
         },
         customComponents: {
-            location: "",
-            content: ""
+            "": {
+                html: '<div class="sigma"></div>',
+                styles: {
+                    "sigma": {
+                        border: "6px solid #fff"
+                    }
+                }
+            },
         }
     },
-    "Hexed": {
-        Display: "TUP",
-        AltDisplay: "",
-        Chance: 10,
-        AddedValue: 2,
-        Multiplier: 1.5,
-        Shared: true,
-        BaseColor: "#00ff84",
-        Pattern: "",
-        Changes: {
-            border: "6px solid <BASE>",
+    "Hyper": {
+        chance: 5,
+        priceFactor: ["+1","*1.2"],
+        shared: true,
+        builtInComponents: {
+            trait: "Hyper",
+            traitColor: "#fff"
+        },
+        styleComponents: {
+            "card": {
+                textTransform: "uppercase"
+            }
         },
     },
-    "Grayscale": {
-        Display: "",
-        AltDisplay: "Grayscale",
-        Chance: 50,
-        AddedValue: 10,
-        Multiplier: 2,
-        Shared: false,
-        BaseColor: "<RANDOM:1-255>",
-        Pattern: "",
-        Changes: {
-            border: "6px solid rgb(<BASE>, <BASE>, <BASE>)",
+    "TUP": {
+        chance: 10,
+        priceFactor: ["+2","*1.5"],
+        shared: true,
+        base: "#00ff84",
+        builtInComponents: {
+            trait: "TUP",
+            traitColor: "<BASE>"
         },
+        styleComponents: {
+            "card": {
+                border: "6px solid <BASE>"
+            }
+        }
+    },
+    "Grayscale": {
+        chance: 50,
+        priceFactor: ["+10","*2"],
+        shared: false,
+        base: "RNG",
+        styleComponents: {
+            "card": {
+                border: "6px solid rgb(<BASE>, <BASE>, <BASE>)"
+            }
+        }
     },
     "Digital": {
         Display: "",
